@@ -1,11 +1,32 @@
 {
     "version": 2,
     "builds": [
-        { "src": "./backend/index.js", "use": "@vercel/node" },
-        { "src": "./frontend", "use": "@vercel/vite" }
+      {
+        "src": "frontend",
+        "use": "@vercel/node",
+        "config": {
+          "maxLambdaSize": "3072mb",
+          "memory": 3072
+        }
+      },
+      {
+        "src": "backend/**/*.js",
+        "use": "@vercel/node",
+        "config": {
+          "maxLambdaSize": "3072mb",
+          "memory": 3072
+        }
+      }
     ],
     "routes": [
-        { "src": "/api/(.*)", "dest": "/backend/index.js/$1" },
-        { "src": "/(.*)", "dest": "/frontend/$1" }
+      {
+        "src": "/api/(.*)",
+        "dest": "backend/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "frontend/$1"
+      }
     ]
-}
+  }
+  
