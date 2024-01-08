@@ -27,7 +27,7 @@ Once the dependencies are installed, you can use the following command to start 
 ```bash
 npm run dev
 ```
-The project should start on http://localhost:5173/
+The project app start on http://localhost:5173/
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
